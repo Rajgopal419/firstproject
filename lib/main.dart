@@ -70,21 +70,46 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,//alligns the text at the center
-          children: [
-            Text('Pesu',style: TextStyle(fontSize: 40,backgroundColor: Colors.black,color: Colors.white)),
-            Text('Hello',style: TextStyle(
-              color: Colors.red,backgroundColor: Colors.amber,
-              fontSize: 40,//size of text whatever we want
-            ),),
-          ],
-        )
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment:
+                MainAxisAlignment.spaceEvenly, //alligns the text at the center
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Pesu lads',
+                style: TextStyle(
+                    fontSize: 50,
+                    // backgroundColor: Colors.blue,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Island'),
+              ),
+              Image.asset(
+                'assets/images/1666689451781.jpg',
+                height: 280,
+                width: 280,
+              ),
+
+          Text(
+            'Rajgopal\n \nSRN:PES2UG21CS419\n \nPhone no:9876543210',
+            style: TextStyle(
+                fontSize: 25,
+                fontWeight:FontWeight.bold,
+                // backgroundColor: Colors.blue,
+                color: Colors.blue,
+                fontFamily: 'Island')
+             ),
+          ElevatedButton(onPressed: (){
+            print('Present');
+          },
+              style:ElevatedButton.styleFrom(primary: Colors.green),
+              child: Text('present')),
+            ],
+          ),
+        ),
       ),
-
-      ); // This trailing comma makes auto-formatting nicer for build methods.
-
+    ); // This trailing comma makes auto-formatting nicer for build methods.
   }
-
 }
