@@ -61,6 +61,12 @@ flutter:
       fonts:
         - asset: assets/fonts/Island_Moments/IslandMoments-Regular.ttf
 
+    - family: Lato
+      fonts:
+            - asset: assets/fonts/Lato/Lato-BoldItalic.ttf
+
+
+
 
 
   # The following line ensures that the Material Icons font is

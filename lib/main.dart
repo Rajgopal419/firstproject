@@ -49,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String phoneNo = '';
 
   void _incrementCounter() {
     setState(() {
@@ -70,43 +71,101 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceEvenly, //alligns the text at the center
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Pesu lads',
-                style: TextStyle(
-                    fontSize: 50,
-                    // backgroundColor: Colors.blue,
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Island'),
-              ),
-              Image.asset(
-                'assets/images/1666689451781.jpg',
-                height: 280,
-                width: 280,
-              ),
+      // resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.blue[100],
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back),
+        onPressed: (){},
+        backgroundColor: Colors.pink[500],
+      ),
 
-          Text(
-            'Rajgopal\n \nSRN:PES2UG21CS419\n \nPhone no:9876543210',
-            style: TextStyle(
-                fontSize: 25,
-                fontWeight:FontWeight.bold,
-                // backgroundColor: Colors.blue,
-                color: Colors.blue,
-                fontFamily: 'Island')
-             ),
-          ElevatedButton(onPressed: (){
-            print('Present');
-          },
-              style:ElevatedButton.styleFrom(primary: Colors.green),
-              child: Text('present')),
-            ],
+      appBar: AppBar(
+        title: Text('Student App'),
+        backgroundColor: Colors.pink[500],
+      ),
+      body: SafeArea(
+        child: Container(
+          margin: EdgeInsets.fromLTRB(50.0, 0.0, 60.0, 0.0),
+          color: Colors.blue[100],
+          width: MediaQuery.of(context).size.width,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, //alligns the text at the center
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Pesu lads',
+                  style: TextStyle(
+                      fontSize: 50,
+                      // backgroundColor: Colors.blue,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+
+
+                      fontFamily: 'Lato'),
+                ),
+                // Image.asset(
+                //   'assets/images/1666689451781.jpg',
+                //   height: 280,
+                //   width: 280,
+                //
+                // ),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/1666689451781.jpg'),
+                  radius: 100.0,
+                ),
+                Container(
+                  child: Text('Rajgopal',
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          // backgroundColor: Colors.blue,
+                          color: Colors.black,
+                          fontFamily: 'Lato')),
+                ),
+                Text('SRN:PES2UG21CS419',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        // backgroundColor: Colors.blue,
+                        color: Colors.black,
+                        fontFamily: 'Lato')),
+                //
+                Container(
+                  margin: EdgeInsets.fromLTRB(30.0, 0.0, 60.0, 0.0),
+                  child: TextField(
+                    autofocus: true,
+
+                    decoration: InputDecoration(
+                      labelText: 'Status',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color:Colors.pink),
+                      )
+
+                    ),
+                    onChanged: (val) {
+                      setState(() {
+                        phoneNo = val;
+                      });
+                    },
+                    // keyboardType: TextInputType.phone,
+
+
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    print('Present');
+                  },
+                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  child: Text('present'),
+
+
+
+                ),
+              ],
+            ),
           ),
         ),
       ),
